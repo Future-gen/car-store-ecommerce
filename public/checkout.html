@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Car Accessories Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-car"></i> CarStore
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <h1>Checkout</h1>
+            
+            <div class="checkout-wrapper">
+                <div class="checkout-form">
+                    <!-- Shipping Address -->
+                    <div class="form-section">
+                        <h3>Shipping Address</h3>
+                        <form id="shippingForm">
+                            <div class="form-row">
+                                <input type="text" placeholder="First Name" required>
+                                <input type="text" placeholder="Last Name" required>
+                            </div>
+                            <input type="email" placeholder="Email" required>
+                            <input type="text" placeholder="Street Address" required>
+                            <div class="form-row">
+                                <input type="text" placeholder="City" required>
+                                <input type="text" placeholder="State" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="ZIP Code" required>
+                                <input type="text" placeholder="Country" required>
+                            </div>
+                            <input type="tel" placeholder="Phone Number" required>
+                        </form>
+                    </div>
+
+                    <!-- Billing Address -->
+                    <div class="form-section">
+                        <h3>Billing Address</h3>
+                        <label><input type="checkbox" id="sameAddress"> Same as shipping address</label>
+                        <form id="billingForm">
+                            <div class="form-row">
+                                <input type="text" placeholder="First Name" required>
+                                <input type="text" placeholder="Last Name" required>
+                            </div>
+                            <input type="text" placeholder="Street Address" required>
+                            <div class="form-row">
+                                <input type="text" placeholder="City" required>
+                                <input type="text" placeholder="State" required>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="form-section">
+                        <h3>Payment Method</h3>
+                        <div class="payment-options">
+                            <label>
+                                <input type="radio" name="payment" value="credit_card" checked>
+                                <i class="fas fa-credit-card"></i> Credit Card
+                            </label>
+                            <label>
+                                <input type="radio" name="payment" value="debit_card">
+                                <i class="fas fa-credit-card"></i> Debit Card
+                            </label>
+                            <label>
+                                <input type="radio" name="payment" value="paypal">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </label>
+                            <label>
+                                <input type="radio" name="payment" value="bank_transfer">
+                                <i class="fas fa-university"></i> Bank Transfer
+                            </label>
+                        </div>
+
+                        <!-- Card Details -->
+                        <form id="cardForm" style="display:none;">
+                            <input type="text" placeholder="Cardholder Name" required>
+                            <input type="text" placeholder="Card Number" maxlength="16" required>
+                            <div class="form-row">
+                                <input type="text" placeholder="MM/YY" required>
+                                <input type="text" placeholder="CVV" maxlength="3" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="checkout-summary">
+                    <h3>Order Summary</h3>
+                    <div id="orderItems"></div>
+                    <hr>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="checkoutSubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="checkoutShipping">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="checkoutTax">$0.00</span>
+                    </div>
+                    <div class="summary-row discount" id="checkoutDiscountRow" style="display:none;">
+                        <span>Discount:</span>
+                        <span id="checkoutDiscount">-$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="checkoutTotal">$0.00</span>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="placeOrder()">Place Order</button>
+                    <a href="cart.html" class="btn btn-secondary btn-full">Back to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/checkout.js"></script>
+</body>
+</html>
