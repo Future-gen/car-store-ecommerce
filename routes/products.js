@@ -11,8 +11,8 @@ router.get('/', async (req, res) => {
     let query = { isActive: true };
 
     // Filter by category
-    if (category) {
-      query.category = category;
+    if (typeof category === 'string' && category.trim() !== '') {
+      query.category = { $eq: category };
     }
 
     // Filter by price range
